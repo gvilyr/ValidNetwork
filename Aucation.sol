@@ -13,7 +13,7 @@ contract Aucation{
 	}
 	function bid() public payable{
 		require(msg.value > latestBid);
-		if(latestBid ! = 0x0){
+		if(latestBid != 0x0){
 			latestBidder.transfer(latestBid);
 		}
 		latestBidder = msg.sender;
@@ -24,5 +24,6 @@ contract Aucation{
 	}
 	modifier restricted(){
 		require(msg.sender == manager);
+		_;
 	}
 }	
